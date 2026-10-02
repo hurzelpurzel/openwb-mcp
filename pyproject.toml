@@ -3,15 +3,18 @@ name = "openwb-mcp"
 version = "0.1.0"
 description = "MCP (Model Context Protocol) server for openWB EV charging hardware"
 readme = "README.md"
+scripts.openwb-mcp = "openwb_mcp.server:main"
 requires-python = ">=3.11"
 dependencies = [
     "fastmcp>=2.0",
+    "httpx>=0.28.1",
 ]
 
 [dependency-groups]
 dev = [
     "mypy>=1.11",
     "pytest>=8.0",
+    "pytest-asyncio>=1.4.0",
     "ruff>=0.6",
 ]
 
@@ -45,3 +48,4 @@ minversion = "8.0"
 testpaths = ["tests"]
 pythonpath = ["src"]
 addopts = "-ra --strict-markers --strict-config"
+asyncio_mode = "strict"
